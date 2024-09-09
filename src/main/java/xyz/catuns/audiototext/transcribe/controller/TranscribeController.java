@@ -11,6 +11,8 @@ import xyz.catuns.audiototext.transcribe.dto.TranscriptionJobDetails;
 import xyz.catuns.audiototext.transcribe.dto.TranscriptionJobList;
 import xyz.catuns.audiototext.transcribe.service.TranscribeService;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/api/transcribe")
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
@@ -20,8 +22,8 @@ public class TranscribeController {
 
     @PostMapping("/start")
     public ResponseEntity<TranscriptionJobDetails> startTranscription(
-            @RequestParam String audioFileId,
-            @RequestParam String languageCode
+            @RequestParam(name = "file_id") UUID audioFileId,
+            @RequestParam(defaultValue = "en-US") String languageCode
     ) {
         TranscriptionJobDetails job = transcribeService.startTranscription(audioFileId, languageCode);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(job);
@@ -29,7 +31,7 @@ public class TranscribeController {
 
     @GetMapping("/{jobId}")
     public ResponseEntity<TranscriptionJobDetails> getJobDetails(
-            @PathVariable String jobId
+            @PathVariable Long jobId
     ){
         TranscriptionJobDetails job = transcribeService.getJobDetails(jobId);
         return ResponseEntity.status(HttpStatus.OK).body(job);

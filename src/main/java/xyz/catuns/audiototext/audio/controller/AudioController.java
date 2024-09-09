@@ -14,7 +14,6 @@ import xyz.catuns.audiototext.audio.dto.AudioFileDetails;
 import xyz.catuns.audiototext.audio.dto.AudioFileList;
 import xyz.catuns.audiototext.audio.service.AudioService;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
