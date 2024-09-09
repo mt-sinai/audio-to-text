@@ -12,5 +12,6 @@ public record TranscriptionJobDetails(
     UUID fileId,
     TranscriptionJobStatus status,
     LocalDateTime startTime,
-    String languageCode
+    String languageCode,
+    String transcriptionUri
 ) {}

@@ -29,9 +29,9 @@ import java.util.UUID;
 public class TranscribeServiceImpl implements TranscribeService {
 
     private final AmazonTranscribe transcribeClient;
-    private final TranscriptionJobRepository jobRepository;
     private final AudioFileRepository audioFileRepository;
     private final TranscriptionJobMapper jobMapper;
+    private final TranscriptionJobRepository jobRepository;
 
     @Value("${aws.s3.bucket.name}")
     private String s3BucketName;
@@ -119,6 +119,7 @@ public class TranscribeServiceImpl implements TranscribeService {
                 if (newStatus == TranscriptionJobStatus.COMPLETED) {
                     job.setEndTime(LocalDateTime.now());
                     job.getAudioFile().setStatus(AudioFileStatus.COMPLETED);
+
                     // Here you would also save the transcription result
 
                 }

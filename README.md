@@ -138,8 +138,12 @@ docker compose up -d
 ### Transcribe Service
 - `POST /api/transcribe/start`
    - Initiate a transcription job for an uploaded audio file.
-- `GET /api/transcribe/{jobId}`
+- `GET /api/transcribe/jobs`
+   - List all transcription jobs for a user.
+- `GET /api/transcribe/{jobName}`
    - Check the status and retrieve results of a transcription job.
+- `POST /api/transcribe/update-status`
+   - Update the status of jobs in progress.
 - `POST /api/transcribe/batch`
    - Begin batch transcription for multiple audio files.
 - `GET /api/transcribe/batch/{batchId}`
@@ -261,7 +265,7 @@ docker compose up -d
 5. **API Development**
     - [x] Implement RESTful endpoints for audio upload and management
     - [x] Create endpoints for starting and managing transcription jobs
-    - [] Develop API for retrieving and managing transcriptions
+    - [x] Develop API for retrieving and managing transcriptions
     - [] Implement user registration and authentication endpoints
 
 6. **Integration with AWS**

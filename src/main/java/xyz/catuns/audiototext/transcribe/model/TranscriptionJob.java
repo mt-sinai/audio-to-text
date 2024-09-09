@@ -42,6 +42,9 @@ public class TranscriptionJob {
     @Column(name = "language_code", nullable = false)
     private String languageCode;
 
+    @Column(name = "transcription_uri")
+    private String transcriptionUri;
+
     @Override
     public String toString() {
         return "TranscriptionJob{" +
