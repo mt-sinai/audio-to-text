@@ -261,7 +261,7 @@ docker compose up -d
 
 5. **API Development**
     - [x] Implement RESTful endpoints for audio upload and management
-    - [] Create endpoints for starting and managing transcription jobs
+    - [x] Create endpoints for starting and managing transcription jobs
     - [] Develop API for retrieving and managing transcriptions
     - [] Implement user registration and authentication endpoints
 
