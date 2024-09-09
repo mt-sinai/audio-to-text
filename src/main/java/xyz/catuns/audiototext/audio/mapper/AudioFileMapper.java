@@ -13,6 +13,7 @@ import xyz.catuns.audiototext.audio.model.AudioFile;
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
 public interface AudioFileMapper {
 
+    @Mapping(target = "fileId", source = "id")
     @BeanMapping(ignoreByDefault = true)
     AudioFileDetails mapToDetails(AudioFile audioFile);
 

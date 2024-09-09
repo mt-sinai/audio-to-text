@@ -9,7 +9,7 @@ import xyz.catuns.audiototext.transcribe.dto.TranscriptionJobList;
 
 @Service
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
-public class TranscriptionServiceImpl implements TranscriptionService {
+public class TranscribeServiceImpl implements TranscribeService {
 
 
     /**

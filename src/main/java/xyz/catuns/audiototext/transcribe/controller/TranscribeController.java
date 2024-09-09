@@ -9,14 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import xyz.catuns.audiototext.transcribe.dto.TranscriptionJobDetails;
 import xyz.catuns.audiototext.transcribe.dto.TranscriptionJobList;
-import xyz.catuns.audiototext.transcribe.service.TranscriptionService;
+import xyz.catuns.audiototext.transcribe.service.TranscribeService;
 
 @RestController
 @RequestMapping("/api/transcribe")
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class TranscribeController {
 
-    private final TranscriptionService transcribeService;
+    private final TranscribeService transcribeService;
 
     @PostMapping("/start")
     public ResponseEntity<TranscriptionJobDetails> startTranscription(
@@ -35,7 +35,7 @@ public class TranscribeController {
         return ResponseEntity.status(HttpStatus.OK).body(job);
     }
     
-    @GetMapping("")
+    @GetMapping("/jobs")
     public ResponseEntity<TranscriptionJobList> listTranscriptionJobs(
             @PageableDefault(size = 20) Pageable pageable
     ) {
