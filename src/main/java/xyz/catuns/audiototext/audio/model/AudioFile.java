@@ -30,7 +30,7 @@ public class AudioFile {
     private String format;
 
     @Column(name = "uuid", nullable = false, unique = true)
-    private UUID uuid = UUID.randomUUID();
+    private UUID uuid;
 
     @Column(name = "content_type")
     private String contentType;
