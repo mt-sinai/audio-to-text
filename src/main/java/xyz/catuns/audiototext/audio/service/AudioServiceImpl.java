@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import xyz.catuns.audiototext.audio.dto.AudioFileDetails;
+import xyz.catuns.audiototext.audio.dto.AudioFileList;
 import xyz.catuns.audiototext.audio.mapper.AudioFileMapper;
 import xyz.catuns.audiototext.audio.model.AudioFile;
 import xyz.catuns.audiototext.audio.model.AudioFileStatus;
@@ -61,9 +62,9 @@ public class AudioServiceImpl implements AudioService {
      * @return <code>AudioFileDetails</code> List
      */
     @Override
-    public Page<AudioFileDetails> listAudioFiles(Pageable pageable) {
+    public AudioFileList listAudioFiles(Pageable pageable) {
         Page<AudioFile> page = audioFileRepository.findAll(pageable);
-        return audioFileMapper.mapToPage(page);
+        return audioFileMapper.mapToList(page);
     }
 
     /**

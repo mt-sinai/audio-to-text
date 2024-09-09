@@ -18,7 +18,7 @@ public class S3ServiceImpl implements S3Service {
 
     private final AmazonS3 amazonS3;
 
-    @Value("${aws.s3.bucket}")
+    @Value("${aws.s3.bucket.name}")
     private String bucketName;
 
     @Override

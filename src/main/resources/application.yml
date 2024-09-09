@@ -52,3 +52,8 @@ management:
     health:
       probes:
         enabled: true
+
+logging:
+  level:
+    root: warn
+    xyz.catuns: debug

@@ -249,7 +249,7 @@ docker compose up -d
     - [x] Set up AWS Transcribe service
 
 3. **Implement Core Services**
-    - [] Create AudioService for handling audio file operations
+    - [x] Create AudioService for handling audio file operations
     - [] Implement TranscribeService for managing transcription jobs
     - [] Develop TranscriptionsService for storing and retrieving transcriptions
     - [] Set up UserService for user management and authentication
@@ -266,7 +266,7 @@ docker compose up -d
     - [] Implement user registration and authentication endpoints
 
 6. **Integration with AWS**
-    - [] Implement S3 client for file upload and retrieval
+    - [x] Implement S3 client for file upload and retrieval
     - [] Integrate AWS Transcribe for audio transcription
     - [] Set up asynchronous job processing for transcription tasks
 
