@@ -267,7 +267,7 @@ docker compose up -d
 
 6. **Integration with AWS**
     - [x] Implement S3 client for file upload and retrieval
-    - [] Integrate AWS Transcribe for audio transcription
+    - [x] Integrate AWS Transcribe for audio transcription
     - [] Set up asynchronous job processing for transcription tasks
 
 7. **Security Implementation**

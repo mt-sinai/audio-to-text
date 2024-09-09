@@ -15,22 +15,22 @@ services:
       - postgres
     restart: unless-stopped
 
-  backend:
-    image: macchiato23/audio-to-text-be:latest
-    container_name: audio_to_text_backend
-    ports:
-      - "8080:8080"
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      DATABASE_USER: ${DATABASE_USER}
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
-      AWS_S3_BUCKET_NAME: ${AWS_S3_BUCKET_NAME}
-      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
-    networks:
-      - postgres
-    depends_on:
-      - postgres
+#  backend:
+#    image: macchiato23/audio-to-text-be:latest
+#    container_name: audio_to_text_backend
+#    ports:
+#      - "8080:8080"
+#    environment:
+#      SPRING_PROFILES_ACTIVE: docker
+#      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+#      DATABASE_USER: ${DATABASE_USER}
+#      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+#      AWS_S3_BUCKET_NAME: ${AWS_S3_BUCKET_NAME}
+#      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+#    networks:
+#      - postgres
+#    depends_on:
+#      - postgres
 
 networks:
   postgres:
