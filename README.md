@@ -126,7 +126,7 @@ docker compose up -d
 ### Audio Service
 - `POST /api/audio/upload`
    - Upload an audio file to AWS S3.
-- `GET /api/audio/list`
+- `GET /api/audio`
    - Retrieve a list of all uploaded audio files.
 - `GET /api/audio/{fileId}`
    - Get details of a specific uploaded audio file.
@@ -260,7 +260,7 @@ docker compose up -d
     - [] Set up repositories for database operations
 
 5. **API Development**
-    - [] Implement RESTful endpoints for audio upload and management
+    - [x] Implement RESTful endpoints for audio upload and management
     - [] Create endpoints for starting and managing transcription jobs
     - [] Develop API for retrieving and managing transcriptions
     - [] Implement user registration and authentication endpoints
