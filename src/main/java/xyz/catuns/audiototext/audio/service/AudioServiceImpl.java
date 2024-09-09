@@ -55,7 +55,9 @@ public class AudioServiceImpl implements AudioService {
     }
 
     private String generateUniqueFileName(String originalFilename) {
-        return UUID.randomUUID() + "_" + originalFilename;
+        return (UUID.randomUUID() + "-" + originalFilename)
+                .replaceAll("[^a-zA-Z0-9.\\-]", "-")
+                .toLowerCase();
     }
 
     /**

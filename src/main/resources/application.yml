@@ -55,5 +55,4 @@ management:
 
 logging:
   level:
-    root: warn
     xyz.catuns: debug
