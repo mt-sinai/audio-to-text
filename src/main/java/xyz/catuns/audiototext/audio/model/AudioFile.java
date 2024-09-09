@@ -5,6 +5,7 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Data
 @Entity
@@ -27,6 +28,9 @@ public class AudioFile {
 
     @Column(name = "format", nullable = false)
     private String format;
+
+    @Column(name = "uuid", nullable = false, unique = true)
+    private UUID uuid = UUID.randomUUID();
 
     @Column(name = "content_type")
     private String contentType;

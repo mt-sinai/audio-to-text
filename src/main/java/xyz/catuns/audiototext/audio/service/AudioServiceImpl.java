@@ -38,19 +38,19 @@ public class AudioServiceImpl implements AudioService {
      */
     @Override
     public AudioFileDetails uploadAudio(MultipartFile file) throws IOException {
-        String fileName = generateUniqueFileName(file.getOriginalFilename());
+        AudioFile audioFile = new AudioFile();
+        audioFile.setFileName(file.getOriginalFilename());
+        audioFile.setContentType(file.getContentType());
+        audioFile.setFileSize(file.getSize());
+        audioFile.setFormat(determineFormat(file));
+
+        String fileName = generateUniqueFileName(audioFile);
         String s3Key = "audio/" + fileName;
 
         String fileUrl = s3Service.uploadFile(file, s3Key);
         log.debug("📪Uploaded audio file url: {}", fileUrl);
 
-
-        AudioFile audioFile = new AudioFile();
-        audioFile.setFileName(fileName);
         audioFile.setFilePath(s3Key);
-        audioFile.setFileSize(file.getSize());
-        audioFile.setContentType(file.getContentType());
-        audioFile.setFormat(determineFormat(file));
         audioFile.setStatus(AudioFileStatus.UPLOADED);
 
         audioFile = audioFileRepository.save(audioFile);
@@ -61,8 +61,10 @@ public class AudioServiceImpl implements AudioService {
         return StringUtils.getFilenameExtension(file.getOriginalFilename());
     }
 
-    private String generateUniqueFileName(String originalFilename) {
-        return (UUID.randomUUID() + "-" + originalFilename)
+    private String generateUniqueFileName(AudioFile audioFile) {
+        UUID uuid = audioFile.getUuid();
+        String originalFilename = audioFile.getFileName();
+        return (uuid + "-" + originalFilename)
                 .replaceAll("[^a-zA-Z0-9.\\-]", "-")
                 .toLowerCase();
     }
