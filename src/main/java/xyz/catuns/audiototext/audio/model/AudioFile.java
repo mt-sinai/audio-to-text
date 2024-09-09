@@ -31,6 +31,9 @@ public class AudioFile {
     @Column(name = "format")
     private String format;
 
+    @Column(name = "content_type")
+    private String contentType;
+
     @CreationTimestamp
     @Column(name = "upload_date")
     private LocalDateTime uploadDate;
