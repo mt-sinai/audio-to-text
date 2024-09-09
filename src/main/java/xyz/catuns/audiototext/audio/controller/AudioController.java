@@ -16,6 +16,8 @@ import xyz.catuns.audiototext.audio.service.AudioService;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 @RestController
@@ -55,16 +57,23 @@ public class AudioController {
     ) throws IOException {
         byte[] fileContent = audioService.downloadAudioFile(fileId);
         AudioFileDetails audioFile = audioService.getAudioFileDetails(fileId);
+        String encodedFileName = encodeUtf8(audioFile.fileName());
         return ResponseEntity.status(HttpStatus.OK)
                 .contentType(MediaType.parseMediaType(audioFile.contentType()))
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + audioFile.fileName() + "\"")
+                .header(HttpHeaders.CONTENT_DISPOSITION,
+                        "attachment; filename*=UTF-8''" + encodedFileName)
                 .body(fileContent);
     }
-    
+
+    private String encodeUtf8(String text) {
+        return URLEncoder.encode(text, StandardCharsets.UTF_8)
+                .replaceAll("\\+", "%20");
+    }
+
     @DeleteMapping("/{fileId}")
     public ResponseEntity<Void> deleteAudioFile(
             @PathVariable UUID fileId
-    ) throws FileNotFoundException {
+    ) {
         audioService.deleteAudioFile(fileId);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

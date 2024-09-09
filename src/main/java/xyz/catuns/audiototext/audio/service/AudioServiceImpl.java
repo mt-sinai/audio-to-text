@@ -20,7 +20,6 @@ import xyz.catuns.audiototext.audio.repository.AudioFileRepository;
 import xyz.catuns.audiototext.aws.service.S3Service;
 import xyz.catuns.audiototext.exception.ResourceNotFoundException;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -110,7 +109,7 @@ public class AudioServiceImpl implements AudioService {
      * @param fileId The <code>AudioFile</code> id
      */
     @Override
-    public void deleteAudioFile(UUID fileId) throws FileNotFoundException {
+    public void deleteAudioFile(UUID fileId) {
         AudioFile audioFile = findById(fileId);
         s3Service.deleteFile(audioFile.getFilePath());
         audioFileRepository.delete(audioFile);

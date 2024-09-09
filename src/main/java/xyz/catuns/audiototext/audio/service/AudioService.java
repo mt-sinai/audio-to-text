@@ -18,5 +18,5 @@ public interface AudioService {
 
     byte[] downloadAudioFile(UUID fileId) throws IOException;
 
-    void deleteAudioFile(UUID fileId) throws FileNotFoundException;
+    void deleteAudioFile(UUID fileId);
 }
