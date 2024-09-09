@@ -9,7 +9,7 @@ import java.util.UUID;
 public interface TranscribeService {
     TranscriptionJobDetails startTranscription(UUID audioFileId, String languageCode);
 
-    TranscriptionJobDetails getJobDetails(Long jobId);
+    TranscriptionJobDetails getJobDetails(String jobName);
 
     TranscriptionJobList listTranscriptionJobs(Pageable pageable);
 

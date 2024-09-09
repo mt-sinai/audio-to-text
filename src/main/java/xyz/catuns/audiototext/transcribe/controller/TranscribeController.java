@@ -29,11 +29,11 @@ public class TranscribeController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(job);
     }
 
-    @GetMapping("/{jobId}")
+    @GetMapping("/{jobName}")
     public ResponseEntity<TranscriptionJobDetails> getJobDetails(
-            @PathVariable Long jobId
+            @PathVariable String jobName
     ){
-        TranscriptionJobDetails job = transcribeService.getJobDetails(jobId);
+        TranscriptionJobDetails job = transcribeService.getJobDetails(jobName);
         return ResponseEntity.status(HttpStatus.OK).body(job);
     }
     

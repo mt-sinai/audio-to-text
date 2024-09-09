@@ -36,6 +36,9 @@ public class TranscriptionJob {
     @Column(name = "start_time", nullable = false)
     private LocalDateTime startTime;
 
+    @Column(name = "end_time")
+    private LocalDateTime endTime;
+
     @Column(name = "language_code", nullable = false)
     private String languageCode;
 

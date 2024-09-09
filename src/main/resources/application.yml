@@ -32,7 +32,6 @@ aws:
     bucket:
       name: ${AWS_S3_BUCKET_NAME}
 
-
 management:
   endpoints:
     web:

@@ -173,7 +173,6 @@ docker compose up -d
 - `file_name`
 - `file_path` (S3 URI)
 - `file_size` (in bytes)
-- `duration` (in seconds)
 - `format` (e.g., 'mp3', 'wav')
 - `upload_date`
 - `user_id` (Foreign key to Users table)
@@ -250,7 +249,7 @@ docker compose up -d
 
 3. **Implement Core Services**
     - [x] Create AudioService for handling audio file operations
-    - [] Implement TranscribeService for managing transcription jobs
+    - [x] Implement TranscribeService for managing transcription jobs
     - [] Develop TranscriptionsService for storing and retrieving transcriptions
     - [] Set up UserService for user management and authentication
 

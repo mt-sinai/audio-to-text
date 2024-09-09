@@ -1,5 +1,10 @@
 package xyz.catuns.audiototext.transcribe.dto;
 
-public record TranscriptionJobList(
+import java.util.List;
 
+public record TranscriptionJobList(
+        int page,
+        int totalPages,
+        int pageSize,
+        List<TranscriptionJobDetails> jobs
 ) {}
