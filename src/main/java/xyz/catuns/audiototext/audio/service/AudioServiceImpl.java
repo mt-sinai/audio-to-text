@@ -39,26 +39,26 @@ public class AudioServiceImpl implements AudioService {
     @Override
     public AudioFileDetails uploadAudio(MultipartFile file) throws IOException {
         String fileName = generateUniqueFileName(file.getOriginalFilename());
-        String format = extractFileFormat(file.getOriginalFilename());
         String s3Key = "audio/" + fileName;
 
         String fileUrl = s3Service.uploadFile(file, s3Key);
         log.debug("📪Uploaded audio file url: {}", fileUrl);
+
 
         AudioFile audioFile = new AudioFile();
         audioFile.setFileName(fileName);
         audioFile.setFilePath(s3Key);
         audioFile.setFileSize(file.getSize());
         audioFile.setContentType(file.getContentType());
-        audioFile.setFormat(format);
+        audioFile.setFormat(determineFormat(file));
         audioFile.setStatus(AudioFileStatus.UPLOADED);
 
         audioFile = audioFileRepository.save(audioFile);
         return audioFileMapper.mapToDetails(audioFile);
     }
 
-    private String extractFileFormat(String originalFilename) {
-        return StringUtils.getFilenameExtension(originalFilename);
+    private String determineFormat(MultipartFile file) {
+        return StringUtils.getFilenameExtension(file.getOriginalFilename());
     }
 
     private String generateUniqueFileName(String originalFilename) {
