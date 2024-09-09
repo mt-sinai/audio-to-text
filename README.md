@@ -8,7 +8,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/mtsinai/audio-to-text">
+  <a href="https://github.com/mt-sinai/audio-to-text">
     <img src="audio-message.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -17,14 +17,14 @@
   <p align="center">
     Transcribe audio to text
     <br />
-    <a href="https://github.com/mtsinai/audio-to-text"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/mt-sinai/audio-to-text"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://att.catuns.xyz">View Demo</a>
     ·
-    <a href="https://github.com/mtsinai/audio-to-text/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/mt-sinai/audio-to-text/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
-    <a href="https://github.com/mtsinai/audio-to-text/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/mt-sinai/audio-to-text/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -328,11 +328,16 @@ docker compose up -d
 ## Bonus Features
 
 
-<!-- Future Features -->
-## Future Features
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+<!-- CONTRIBUTORS -->
+## Contributors
+
+<a href="https://github.com/mt-sinai/audio-to-text/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=mt-sinai/audio-to-text" />
+</a>
 
 ---
 
@@ -360,20 +365,20 @@ Whether you use this project, have learned something from it, or just like it, p
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [version-shield]: https://img.shields.io/badge/version-0.0.1-green.svg?style=for-the-badge
-[contributors-shield]: https://img.shields.io/github/contributors/mtsinai/audio-to-text.svg?style=for-the-badge&logo=github
-[contributors-url]: https://github.com/mtsinai/audio-to-text/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/mtsinai/audio-to-text.svg?style=for-the-badge
-[forks-url]: https://github.com/mtsinai/audio-to-text/network/members
-[stars-shield]: https://img.shields.io/github/stars/mtsinai/audio-to-text.svg?style=for-the-badge&&logo=github
-[stars-url]: https://github.com/mtsinai/audio-to-text/stargazers
-[issues-shield]: https://img.shields.io/github/issues/mtsinai/audio-to-text.svg?style=for-the-badge
-[issues-url]: https://github.com/mtsinai/audio-to-text/issues
-[license-shield]: https://img.shields.io/github/license/mtsinai/audio-to-text.svg?style=for-the-badge
-[license-url]: https://github.com/mtsinai/audio-to-text/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/mt-sinai/audio-to-text.svg?style=for-the-badge&logo=github
+[contributors-url]: https://github.com/mt-sinai/audio-to-text/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/mt-sinai/audio-to-text.svg?style=for-the-badge
+[forks-url]: https://github.com/mt-sinai/audio-to-text/network/members
+[stars-shield]: https://img.shields.io/github/stars/mt-sinai/audio-to-text.svg?style=for-the-badge&&logo=github
+[stars-url]: https://github.com/mt-sinai/audio-to-text/stargazers
+[issues-shield]: https://img.shields.io/github/issues/mt-sinai/audio-to-text.svg?style=for-the-badge
+[issues-url]: https://github.com/mt-sinai/audio-to-text/issues
+[license-shield]: https://img.shields.io/github/license/mt-sinai/audio-to-text.svg?style=for-the-badge
+[license-url]: https://github.com/mt-sinai/audio-to-text/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=0A66C2
 [linkedin-url]: https://www.linkedin.com/in/devin-catuns/
 [live-demo-shield]: https://img.shields.io/badge/demo-offline-red.svg?style=for-the-badge
 [live-demo-url]: https://audio-to-text.vercel.app
-[repo-url]: https://github.com/mtsinai/audio-to-text
+[repo-url]: https://github.com/mt-sinai/audio-to-text
 [porfolio-shield]: https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white
 [portfolio-url]: https://catuns.xyz/
