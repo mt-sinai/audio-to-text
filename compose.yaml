@@ -37,4 +37,4 @@ networks:
     driver: bridge
 
 volumes:
-  postgres:%
+  postgres:

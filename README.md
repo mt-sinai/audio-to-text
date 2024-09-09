@@ -244,9 +244,9 @@ docker compose up -d
 
 2. **Configure AWS Services**
     - [x] Create an AWS account if not already available
-    - [x] Set up an S3 bucket for audio file storage
+    - [x] Set up an S3 bucket for audio file and transcript storage
     - [x] Configure IAM roles and policies for S3 and Transcribe access
-    - [] Set up AWS Transcribe service
+    - [x] Set up AWS Transcribe service
 
 3. **Implement Core Services**
     - [] Create AudioService for handling audio file operations
