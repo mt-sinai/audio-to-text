@@ -5,7 +5,6 @@ import org.springframework.web.multipart.MultipartFile;
 import xyz.catuns.audiototext.audio.dto.AudioFileDetails;
 import xyz.catuns.audiototext.audio.dto.AudioFileList;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.UUID;
 

@@ -43,7 +43,7 @@ public class TranscriptionJob {
     public String toString() {
         return "TranscriptionJob{" +
                 "id=" + id +
-                ", audioFile=" + audioFile.getId() +
+                ", audioFile=" + audioFile.getFileId() +
                 ", jobName='" + jobName + '\'' +
                 ", status=" + status +
                 ", startTime=" + startTime +
