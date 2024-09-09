@@ -2,7 +2,7 @@ package xyz.catuns.audiototext.audio.dto;
 
 import xyz.catuns.audiototext.audio.model.AudioFileStatus;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public record AudioFileDetails(
         String fileName,
@@ -10,6 +10,6 @@ public record AudioFileDetails(
         Integer duration,
         String format,
         String contentType,
-        LocalDate uploadDate,
+        LocalDateTime uploadDate,
         AudioFileStatus status
 ) {}

@@ -2,9 +2,9 @@ package xyz.catuns.audiototext.audio.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
+import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -31,15 +31,16 @@ public class AudioFile {
     @Column(name = "format")
     private String format;
 
-    @CreatedDate
+    @CreationTimestamp
     @Column(name = "upload_date")
-    private LocalDate uploadDate;
+    private LocalDateTime uploadDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private AudioFileStatus status;
 
+    @Column(name = "user_id")
+    private Long userId;
 
-//    todo: user id
 
 }
