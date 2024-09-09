@@ -25,6 +25,9 @@ public class AudioFile {
     @Column(name = "file_size")
     private Long fileSize;
 
+    @Column(name = "format", nullable = false)
+    private String format;
+
     @Column(name = "content_type")
     private String contentType;
 

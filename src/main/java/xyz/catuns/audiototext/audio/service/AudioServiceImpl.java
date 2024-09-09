@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import xyz.catuns.audiototext.audio.dto.AudioFileDetails;
 import xyz.catuns.audiototext.audio.dto.AudioFileList;
@@ -38,6 +39,7 @@ public class AudioServiceImpl implements AudioService {
     @Override
     public AudioFileDetails uploadAudio(MultipartFile file) throws IOException {
         String fileName = generateUniqueFileName(file.getOriginalFilename());
+        String format = extractFileFormat(file.getOriginalFilename());
         String s3Key = "audio/" + fileName;
 
         String fileUrl = s3Service.uploadFile(file, s3Key);
@@ -48,10 +50,15 @@ public class AudioServiceImpl implements AudioService {
         audioFile.setFilePath(s3Key);
         audioFile.setFileSize(file.getSize());
         audioFile.setContentType(file.getContentType());
+        audioFile.setFormat(format);
         audioFile.setStatus(AudioFileStatus.UPLOADED);
 
         audioFile = audioFileRepository.save(audioFile);
         return audioFileMapper.mapToDetails(audioFile);
+    }
+
+    private String extractFileFormat(String originalFilename) {
+        return StringUtils.getFilenameExtension(originalFilename);
     }
 
     private String generateUniqueFileName(String originalFilename) {

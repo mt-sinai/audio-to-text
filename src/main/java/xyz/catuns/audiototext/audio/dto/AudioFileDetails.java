@@ -8,6 +8,7 @@ public record AudioFileDetails(
         Long fileId,
         String fileName,
         Long fileSize,
+        String format,
         String contentType,
         LocalDateTime uploadDate,
         AudioFileStatus status
