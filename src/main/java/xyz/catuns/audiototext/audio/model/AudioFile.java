@@ -16,20 +16,14 @@ public class AudioFile {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "file_name")
+    @Column(name = "file_name", unique = true, nullable = false)
     private String fileName;
 
-    @Column(name = "file_path")
+    @Column(name = "file_path", nullable = false)
     private String filePath;
 
     @Column(name = "file_size")
     private Long fileSize;
-
-    @Column(name = "duration")
-    private Integer duration;
-
-    @Column(name = "format")
-    private String format;
 
     @Column(name = "content_type")
     private String contentType;
