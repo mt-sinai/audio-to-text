@@ -7,15 +7,16 @@ import xyz.catuns.audiototext.audio.dto.AudioFileList;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.UUID;
 
 public interface AudioService {
     AudioFileDetails uploadAudio(MultipartFile file) throws IOException;
 
     AudioFileList listAudioFiles(Pageable pageable);
 
-    AudioFileDetails getAudioFileDetails(long fileId) throws IOException;
+    AudioFileDetails getAudioFileDetails(UUID fileId) throws IOException;
 
-    byte[] downloadAudioFile(long fileId) throws IOException;
+    byte[] downloadAudioFile(UUID fileId) throws IOException;
 
-    void deleteAudioFile(long fileId) throws FileNotFoundException;
+    void deleteAudioFile(UUID fileId) throws FileNotFoundException;
 }

@@ -16,6 +16,7 @@ import xyz.catuns.audiototext.audio.service.AudioService;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/audio")
@@ -42,7 +43,7 @@ public class AudioController {
 
     @GetMapping("/{fileId}")
     public ResponseEntity<AudioFileDetails> getAudioFileDetails(
-            @PathVariable long fileId
+            @PathVariable UUID fileId
     ) throws IOException {
         AudioFileDetails audioFile = audioService.getAudioFileDetails(fileId);
         return ResponseEntity.status(HttpStatus.OK).body(audioFile);
@@ -50,7 +51,7 @@ public class AudioController {
 
     @GetMapping("/{fileId}/download")
     public ResponseEntity<byte[]> downloadAudioFile(
-            @PathVariable long fileId
+            @PathVariable UUID fileId
     ) throws IOException {
         byte[] fileContent = audioService.downloadAudioFile(fileId);
         AudioFileDetails audioFile = audioService.getAudioFileDetails(fileId);
@@ -62,7 +63,7 @@ public class AudioController {
     
     @DeleteMapping("/{fileId}")
     public ResponseEntity<Void> deleteAudioFile(
-            @PathVariable long fileId
+            @PathVariable UUID fileId
     ) throws FileNotFoundException {
         audioService.deleteAudioFile(fileId);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();

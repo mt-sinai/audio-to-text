@@ -18,6 +18,7 @@ import xyz.catuns.audiototext.audio.model.AudioFile;
 import xyz.catuns.audiototext.audio.model.AudioFileStatus;
 import xyz.catuns.audiototext.audio.repository.AudioFileRepository;
 import xyz.catuns.audiototext.aws.service.S3Service;
+import xyz.catuns.audiototext.exception.ResourceNotFoundException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -46,7 +47,7 @@ public class AudioServiceImpl implements AudioService {
         log.debug("📪Uploaded audio file url: {}", fileUrl);
 
         AudioFile audioFile = new AudioFile();
-        audioFile.setUuid(uuid);
+        audioFile.setFileId(uuid);
         audioFile.setFileName(file.getOriginalFilename());
         audioFile.setContentType(file.getContentType());
         audioFile.setFileSize(file.getSize());
@@ -82,14 +83,14 @@ public class AudioServiceImpl implements AudioService {
      * @return <code>AudioFileDetails</code>
      */
     @Override
-    public AudioFileDetails getAudioFileDetails(long fileId) throws IOException {
+    public AudioFileDetails getAudioFileDetails(UUID fileId) {
         AudioFile audioFile = findById(fileId);
         return audioFileMapper.mapToDetails(audioFile);
     }
 
-    private AudioFile findById(long fileId) throws FileNotFoundException {
-        return audioFileRepository.findById(fileId)
-                .orElseThrow(() -> new FileNotFoundException("Audio file not found"));
+    private AudioFile findById(UUID fileId) {
+        return audioFileRepository.findByFileId(fileId)
+                .orElseThrow(() -> new ResourceNotFoundException("Audio file not found"));
     }
 
     /**
@@ -97,7 +98,7 @@ public class AudioServiceImpl implements AudioService {
      * @return file contents as byte array
      */
     @Override
-    public byte[] downloadAudioFile(long fileId) throws IOException {
+    public byte[] downloadAudioFile(UUID fileId) throws IOException {
         AudioFile audioFile = findById(fileId);
         S3Object s3Object = s3Service.getFile(audioFile.getFilePath());
         S3ObjectInputStream inputStream = s3Object.getObjectContent();
@@ -109,7 +110,7 @@ public class AudioServiceImpl implements AudioService {
      * @param fileId The <code>AudioFile</code> id
      */
     @Override
-    public void deleteAudioFile(long fileId) throws FileNotFoundException {
+    public void deleteAudioFile(UUID fileId) throws FileNotFoundException {
         AudioFile audioFile = findById(fileId);
         s3Service.deleteFile(audioFile.getFilePath());
         audioFileRepository.delete(audioFile);

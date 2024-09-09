@@ -3,9 +3,10 @@ package xyz.catuns.audiototext.audio.dto;
 import xyz.catuns.audiototext.audio.model.AudioFileStatus;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public record AudioFileDetails(
-        Long fileId,
+        UUID fileId,
         String fileName,
         Long fileSize,
         String format,

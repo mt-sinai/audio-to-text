@@ -20,6 +20,9 @@ public class AudioFile {
     @Column(name = "file_name", unique = true, nullable = false)
     private String fileName;
 
+    @Column(name = "file_id", unique = true, nullable = false)
+    private UUID fileId;
+
     @Column(name = "file_path", nullable = false)
     private String filePath;
 
@@ -28,9 +31,6 @@ public class AudioFile {
 
     @Column(name = "format", nullable = false)
     private String format;
-
-    @Column(name = "uuid", nullable = false, unique = true)
-    private UUID uuid;
 
     @Column(name = "content_type")
     private String contentType;
