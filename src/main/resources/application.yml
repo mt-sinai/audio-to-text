@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: audio-to-text
+  profiles:
+    active: dev
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+aws:
+  s3:
+    access:
+      key: ${AWS_ACCESS_KEY_ID}
+    secret:
+      key: ${AWS_SECRET_ACCESS_KEY}
+    bucket:
+      name: ${AWS_S3_BUCKET_NAME}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  info:
+    env:
+      enabled: true
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      probes:
+        enabled: true

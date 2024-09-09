@@ -429,7 +429,7 @@ Whether you use this project, have learned something from it, or just like it, p
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=0A66C2
 [linkedin-url]: https://www.linkedin.com/in/devin-catuns/
 [live-demo-shield]: https://img.shields.io/badge/demo-offline-red.svg?style=for-the-badge
-[live-demo-url]: https://audio-to-text.vercel.app
+[live-demo-url]: https://att.catuns.xyz
 [repo-url]: https://github.com/mt-sinai/audio-to-text
 [porfolio-shield]: https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white
 [portfolio-url]: https://catuns.xyz/
